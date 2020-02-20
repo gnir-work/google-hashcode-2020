@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "solution"
+version = "0.1.0"
+description = ""
+authors = ["Nir Geller <gnir.work@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pydash = "^4.7.6"
+numpy = "^1.18.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = {version = "^19.10b0", allow-prereleases = true}
+mypy = "^0.761"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
