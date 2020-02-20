@@ -1,4 +1,3 @@
-from __future__ import annotations
 from typing import List
 
 
@@ -10,8 +9,14 @@ class Book:
     def __str__(self):
         return f"book id: {self.id} book_score: {self.score}"
 
+    def __hash__(self):
+        return self.id
+
+    def __eq__(self, value):
+        return self.id == value.id
+
     @classmethod
-    def parse_from_line(cls, line: str) -> List[Book]:
+    def parse_from_line(cls, line: str):
         return [cls(book_id, int(book_score)) for book_id, book_score in enumerate(line.split())]
     
 class Library:
@@ -33,7 +38,7 @@ class Library:
         return f"books: {books_string} registration_time:{self.registration_time} throughput:{self.throughput}"
 
     @classmethod
-    def parse_from_lines(cls, library_id: int, library_definition: str) -> Library:
+    def parse_from_lines(cls, library_id: int, library_definition: str):
         _, registration_time, throughput = map(int, library_definition.split())
         return cls(library_id, registration_time, throughput)
 
@@ -51,7 +56,7 @@ class RoundConfig:
         return f"books number: {self.books_number} libraries number: {self.libraries_number} days: {self.days_number}\nbooks: {books_string}\nlibraries_string: {library_string}"
 
     @classmethod
-    def parse_from_line(cls, line: str) -> RoundConfig:
+    def parse_from_line(cls, line: str):
         """
         Create he RoundConfig from a data line.
         """
