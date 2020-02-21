@@ -1,4 +1,6 @@
 .venv/
 .mypy_cache/
-solution/data.txt
 .vscode/
+solution/__pycache__/
+solution/data.txt
+**/*.swp
